@@ -138,7 +138,7 @@
 | [03. GTID 기반 복제 — 장애 복구 시 왜 GTID가 중요한가](./replication/03-gtid-based-replication.md) | GTID(Global Transaction ID)가 `server_uuid:transaction_id` 형식으로 트랜잭션을 전역 식별하는 방식, 기존 포지션 기반 복제에서 Failover 시 Binary Log 위치를 수동으로 찾아야 하는 문제, GTID로 Replica 전환이 자동화되는 원리 |
 | [04. Replication Lag 발생 원인 — IO Thread vs SQL Thread 병목 분석](./replication/04-replication-lag-analysis.md) | `SHOW REPLICA STATUS`의 `Seconds_Behind_Source` 지표의 정확한 의미와 오해, IO Thread 병목(네트워크/Binary Log 수신)과 SQL Thread 병목(Relay Log 재생 속도)을 구분하는 방법, 대용량 트랜잭션이 Lag을 발생시키는 구조 |
 | [05. Semi-Synchronous Replication — 동기/비동기 복제의 트레이드오프](./replication/05-semi-sync-replication.md) | 비동기 복제에서 Source 장애 시 커밋된 트랜잭션이 유실되는 시나리오, Semi-Sync가 최소 1개 Replica의 Relay Log 수신을 확인 후 커밋 완료로 처리하는 방식, `rpl_semi_sync_source_timeout` 타임아웃 시 비동기로 자동 강등되는 조건 |
-| [06. 병렬 복제(Parallel Replication) — Replica가 지연을 따라잡는 메커니즘](./replication/06-parallel-replication.md) | 단일 SQL Thread가 Source의 병렬 트랜잭션을 직렬로 재생할 때 Lag이 누적되는 구조적 문제, `slave_parallel_workers` 설정과 `LOGICAL_CLOCK` 방식으로 독립 트랜잭션을 병렬 재생하는 원리, 병렬 복제 시 트랜잭션 순서 보장 방식 |
+| [06. 병렬 복제(Parallel Replication) — Replica가 지연을 따라잡는 메커니즘](./replication/06-parallel-replication.md) | 단일 SQL Thread가 Source의 병렬 트랜잭션을 직렬로 재생할 때 Lag이 누적되는 구조적 문제, `replica_parallel_workers` 설정과 `LOGICAL_CLOCK` 방식으로 독립 트랜잭션을 병렬 재생하는 원리, 병렬 복제 시 트랜잭션 순서 보장 방식 |
 | [07. Spring에서 Read/Write 분리 — AbstractRoutingDataSource와 Replica 지연 대응](./replication/07-spring-read-write-separation.md) | `AbstractRoutingDataSource`로 `@Transactional(readOnly=true)`를 Replica로 라우팅하는 구현 패턴, Replica Lag으로 인한 Stale Read 문제와 `@Transactional` 전파 설정으로 방어하는 전략, Source 장애 시 Failover와 Spring DataSource 재설정 |
 
 </details>
@@ -279,8 +279,8 @@ server-id=2
 relay-log=relay-bin
 gtid-mode=ON
 enforce-gtid-consistency=ON
-slave-parallel-workers=4
-slave-parallel-type=LOGICAL_CLOCK
+replica-parallel-workers=4
+replica-parallel-type=LOGICAL_CLOCK
 ```
 
 ```sql
