@@ -596,6 +596,6 @@ gh-ost \
 
 <div align="center">
 
-**[⬅️ AUTO_INCREMENT 함정](./04-auto-increment-pitfalls.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 6 모니터링 ➡️](../monitoring-diagnosis/01-slow-query-log.md)**
+**[⬅️ AUTO_INCREMENT 함정](./04-auto-increment-pitfalls.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 6 모니터링 ➡️](../monitoring-diagnosis/01-performance-schema-guide.md)**
 
 </div>
