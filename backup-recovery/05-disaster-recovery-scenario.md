@@ -711,6 +711,6 @@ terraform destroy -var="purpose=recovery-drill" -auto-approve
 
 <div align="center">
 
-**[⬅️ 복구 전략 설계](./04-recovery-strategy-rto-rpo.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 5 스키마 설계 ➡️](../schema-design/01-normalization-and-denormalization.md)**
+**[⬅️ 복구 전략 설계](./04-recovery-strategy-rto-rpo.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 5 스키마 설계 ➡️](../schema-design/01-data-type-selection.md)**
 
 </div>
