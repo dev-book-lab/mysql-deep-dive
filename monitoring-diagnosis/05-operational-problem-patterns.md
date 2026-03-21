@@ -569,6 +569,6 @@ ORDER BY processlist_time DESC;
 
 <div align="center">
 
-**[⬅️ MySQL 8.0 새 기능](./04-mysql8-new-features.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 7 보안 ➡️](../security-user-management/01-authentication-and-authorization.md)**
+**[⬅️ MySQL 8.0 새 기능](./04-mysql8-new-features.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 7 보안 ➡️](../security-user-management/01-user-privilege-design.md)**
 
 </div>
