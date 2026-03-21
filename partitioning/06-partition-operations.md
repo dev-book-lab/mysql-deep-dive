@@ -614,6 +614,6 @@ pt-online-schema-change \
 
 <div align="center">
 
-**[⬅️ 파티션의 함정](./05-partition-pitfalls.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 3 Replication ➡️](../replication/01-binlog-replication-basics.md)**
+**[⬅️ 파티션의 함정](./05-partition-pitfalls.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 3 Replication ➡️](../replication/01-replication-architecture-binlog.md)**
 
 </div>
